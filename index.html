@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="SEIKO Controller: Multi-Contact Whole Body Force Control for Position-Controlled Robots">
+  <meta name="keywords" content="Whole Body Admittance Control, Multi-Contact, Teleoperation, Joint Flexibility, Humanoid Robot, Talos Robot">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEIKO Controller</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="./static/js/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+  <script src="./static/js/isInViewport.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <link rel="icon" href="./resources/favicon.ico">
+</head>
+<body>
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span class="is-size-3">SEIKO Controller:</span><br/>Multi-Contact Whole Body Force Control<br/>for Position-Controlled Robots</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <a href="">Quentin Rouxel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://members.loria.fr/SIvaldi">Serena Ivaldi</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://members.loria.fr/JBMouret">Jean-Baptiste Mouret</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              Inria Nancy - Grand Est, CNRS, Université de Lorraine
+              <br>
+            </span>
+            <span class="author-block">
+              <img src="./resources/logos/logo_inria.png" width="15%" style="margin:1%"></img>
+              <img src="./resources/logos/logo_cnrs.png" width="5%" style="margin:1%"></img>
+              <img src="./resources/logos/logo_ul.png" width="15%" style="margin:1%"></img>
+              <img src="./resources/logos/logo_loria.png" width="5%" style="margin:1%"></img>
+              <img src="./resources/logos/logo_eurobin.png" width="15%" style="margin:1%"></img>
+              <img src="./resources/logos/logo_eu.png" width="15%" style="margin:1%"></img>
+            </span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="resources/SEIKO_Controller.pdf"
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.16465"
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/0HTV1hhgZZY"
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/hucebot/seiko_controller_code" 
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom: 0">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds no-bottom-padding">
+        <iframe height="500" src="https://www.youtube.com/embed/0HTV1hhgZZY" title="YouTube video player" frameborder="0" style="border: 1px solid #bbb; border-radius: 10px; width: 100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified is-size-5">
+          <p>
+            Many humanoid and multi-legged robots are controlled in positions rather than in torques, preventing direct control of contact forces, and hampering their ability to create multiple contacts to enhance their balance, such as placing a hand on a wall or a handrail. This paper introduces the SEIKO (Sequential Equilibrium Inverse Kinematic Optimization) pipeline, drawing inspiration from flexibility models used in serial elastic actuators to indirectly control contact forces on traditional position-controlled robots. SEIKO formulates whole-body retargeting from Cartesian commands and admittance control using two quadratic programs solved in real time. We validated our pipeline with experiments on the real, full-scale humanoid robot Talos in various multi-contact scenarios, including pushing tasks, far-reaching tasks, stair climbing, and stepping on sloped surfaces. This work opens the possibility of stable, contact-rich behaviors while getting around many of the challenges of torque-controlled robots.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2" style="width: 100%; text-align: center; padding-bottom: 10px;">Multi-Contact Experiments on Talos Humanoid Robot</h2>
+            <div class="row" style="margin-bottom: 10px">
+              <div class="col" style="padding-left: 10px; padding-right: 10px">
+                <h3 class="title is-4 subtitle">Traversal of sloped uneven ground with wall contact</h3>
+                <video autoplay muted loop playsinline controls src="./resources/clips/clip_slope.mp4" width="100%" style="border-radius:10px; "></video>
+              </div>
+              <div class="col" style="padding-left: 10px; padding-right: 10px">
+                <h3 class="title is-4 subtitle">Stepping up 15 cm with enhanced stability</h3>
+                <video autoplay muted loop playsinline controls src="./resources/clips/clip_step.mp4" width="100%" style="border-radius:10px; "></video>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col" style="padding-left: 10px; padding-right: 10px">
+                <h3 class="title is-4 subtitle">Hand contact extends reaching distance</h3>
+                <video autoplay muted loop playsinline controls src="./resources/clips/clip_reach.mp4" width="100%" style="border-radius:10px; "></video>
+              </div>
+              <div class="col" style="padding-left: 10px; padding-right: 10px">
+                <h3 class="title is-4 subtitle">Testing robustness to 9 kg mass model error</h3>
+                <video autoplay muted loop playsinline controls src="./resources/clips/clip_load.mp4" width="100%" style="border-radius:10px; "></video>
+              </div>
+            </div>
+        </tr>
+      </div> 
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-2" style="width: 100%; text-align: center; padding-bottom: 10px;">Methodology</h2>
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered is-full-width" style="width: 100%">
+          <div class="column content has-text-justified is-size-5 is-three-fifths">
+            <h3 class="title is-4">Multi-Contact Control Challenges:</h3>
+            <ul>
+              <li>
+                Multi-contact tasks require realizing specific contact forces
+              </li>
+              <li>
+                Due to closed kinematic chains in multi-contact, perfectly rigid systems exhibit redundancy in force distribution: for the same posture, multiple force distributions can exist
+              </li>
+              <li>
+                Position-controlled robots cannot directly control contact forces
+              </li>
+            </ul>
+            <h3 class="title is-4">Objective:</h3>
+            Control contact forces on position-control robots to perform multi-contact tasks
+            <h3 class="title is-4">Main Ideas:</h3>
+            <ul>
+              <li>
+                Real systems, including stiff position-controlled robots, inherently possess flexibilities arising from structural bending and internal actuator impedance
+              </li>
+              <li>
+                In presence of flexibilities, the actual system's force distribution is unique, determined by the configuration that minimizes the overall whole body elastic energy
+              </li>
+              <li>
+                Despite being unobservable, flexibilities can be modeled and predicted through nonlinear whole-body optimization
+              </li>
+              <li>
+                This unique and well defined configuration depends on joint position commands
+              </li>
+              <li>
+                By <q>inverting</q> this relationship, joint position commands are optimized to produced a desired contact force distribution
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row is-full-width" style="margin-bottom: 2em;">
+        <img src="resources/concept.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto" />
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered is-full-width" style="width: 100%">
+          <div class="column content has-text-justified is-size-5 is-three-fifths">
+            <h3 class="title is-4">Control Pipeline (SEIKO):</h3>
+            <ul>
+              <li>
+                Input: Cartesian motion commands for each effector (position and/or velocity)
+              </li>
+              <li>
+                Output: corrected joint position commands realizing desired contact forces
+              </li>
+              <li>
+                In our experiments, a human operator teleoperates the robot, but input commands could alternatively come from an autonomous planner
+              </li>
+              <li>
+                SEIKO Retargeting computes feasible desired whole body configurations from given commands
+              </li>
+              <li>
+                SEIKO Controller updates joint position commands to indirectly regulate contact forces using a model of flexibilities.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row is-full-width">
+        <img src="resources/architecture.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-2" style="width: 100%; text-align: center; padding-bottom: 10px;">Controller's Capabilities</h2>
+      </div>
+      <div class="row is-full-width">
+        <h3 class="title is-4 subtitle">Smooth contact switching</h3>
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <div class="column is-two-third">
+            <video autoplay muted loop playsinline controls src="./resources/clips/clip_switching.mp4" width="100%" style="border-radius:10px; "></video>
+          </div>
+          <div class="column">
+            <img src="resources/plots/plot_FigFootSwitch.png" class="interpolation-image" alt="" style="display: block; margin-right: auto;"/>
+          </div>
+        </div>
+      </div>
+      <div class="row is-full-width">
+        <h3 class="title is-4 subtitle">Pushing task tracking hand contact force</h3>
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <div class="column is-two-third">
+            <video autoplay muted loop playsinline controls src="./resources/clips/clip_pushing.mp4" width="100%" style="border-radius:10px; "></video>
+          </div>
+          <div class="column">
+            <img src="resources/plots/plot_FigPushWall.png" class="interpolation-image" alt="" style="display: block; margin-right: auto;"/>
+          </div>
+        </div>
+      </div>
+      <div class="row is-full-width">
+        <h3 class="title is-4 subtitle">Far reach with and without unmodeled load</h3>
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <div class="column is-two-third">
+            <video autoplay muted loop playsinline controls src="./resources/clips/clip_reach_no_load.mp4" width="100%" style="border-radius:10px; "></video>
+            <video autoplay muted loop playsinline controls src="./resources/clips/clip_reach_with_load.mp4" width="100%" style="border-radius:10px; "></video>
+          </div>
+          <div class="column">
+            <img src="resources/plots/plot_FigReachingLoad.png" class="interpolation-image" alt="" style="display: block; margin-right: auto;"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-2" style="width: 100%; text-align: center; padding-bottom: 10px;">Robustness Against Motion Speed and Model Error</h2>
+      </div>
+      <div class="row is-full-width">
+        <div class="columns is-centered">
+          <div class="column is-one-quarter" style="padding-right: 0px">
+            <video autoplay muted loop playsinline controls src="./resources/clips/clip_robustness.mp4" width="100%" style="border-radius:10px; "></video>
+          </div>
+          <div class="column" style="padding-left: 0px">
+            <img src="resources/plots/plot_FigRobustnessComparison.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto" />
+          </div>
+        </div>
+      </div>
+      <div class="row is-full-width">
+        <div class="content has-text-justified is-size-5">
+          In simulation, we evaluated the controller's robustness by performing reaching motions near the feasibility boundary, varying hand motion velocity (2 cm/s to 40 cm/s) and unmodeled added mass on the hand (none to 12 kg). We measured the number of successful trials without a fall, out of 10 trials, under three conditions: (i) without the SEIKO Controller, (ii) with the SEIKO Controller but without considering joint torque limits, and (iii) using the full control method.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-2" style="width: 100%; text-align: center; padding-bottom: 10px;">BibTeX</h2>
+      </div>
+      <div class="row is-full-width">
+          <a href="resources/SEIKO_Controller.pdf"><img src="resources/pages.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 70%" /></a>
+      </div>
+      <div class="row is-full-width">
+        <pre><code>@misc{rouxel2023multicontact,
+    title={Multi-Contact Whole Body Force Control for Position-Controlled Robots}, 
+    author={Quentin Rouxel and Serena Ivaldi and Jean-Baptiste Mouret},
+    year={2023},
+    eprint={2312.16465},
+    archivePrefix={arXiv},
+    primaryClass={cs.RO}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
