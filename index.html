@@ -2,9 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="SEIKO Controller: Multi-Contact Whole Body Force Control for Position-Controlled Robots">
-  <meta name="keywords" content="Whole Body Admittance Control, Multi-Contact, Teleoperation, Joint Flexibility, Humanoid Robot, Talos Robot">
+  <meta name="description" content="SEIKO Controller: Multi-Contact Whole-Body Force Control for Position-Controlled Robots">
+  <meta name="keywords" content="Whole-Body Admittance Control, Multi-Contact, Teleoperation, Joint Flexibility, Humanoid Robot, Talos Robot">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="m2MXgy25hN2mRPJHKKTrDlHH7SqXjlmJZS8QpJAPAIQ" />
   <title>SEIKO Controller</title>
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -27,7 +28,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title"><span class="is-size-3">SEIKO Controller:</span><br/>Multi-Contact Whole Body Force Control<br/>for Position-Controlled Robots</h1>
+            <h1 class="title is-1 publication-title"><span class="is-size-3">SEIKO Controller:</span><br/>Multi-Contact Whole-Body Force Control<br/>for Position-Controlled Robots</h1>
           <div class="is-size-4 publication-authors">
             <span class="author-block">
               <a href="">Quentin Rouxel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,16 +60,34 @@
                 </a>
               </span>
               <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/abstract/document/10517393"
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                      <i class="ai ai-ieee"></i>
+                  </span>
+                  <span>IEEE</span>
+                </a>
+              </span>
+              <span class="link-block">
                 <a href="https://arxiv.org/abs/2312.16465"
                    class="external-link button is-normal is-rounded is-dark is-size-5">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>ArXiv</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://youtu.be/0HTV1hhgZZY"
+                <a href="https://hal.univ-lorraine.fr/hal-04362547"
+                   class="external-link button is-normal is-rounded is-dark is-size-5">
+                  <span class="icon">
+                      <i class="ai ai-hal"></i>
+                  </span>
+                  <span>HAL</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://youtu.be/RGkZS57_6Nk"
                    class="external-link button is-normal is-rounded is-dark is-size-5">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -95,7 +114,7 @@
   <div class="container">
     <div class="columns is-centered has-text-centered">
       <div class="column is-two-thirds no-bottom-padding">
-        <iframe height="500" src="https://www.youtube.com/embed/0HTV1hhgZZY" title="YouTube video player" frameborder="0" style="border: 1px solid #bbb; border-radius: 10px; width: 100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe height="500" src="https://www.youtube.com/embed/RGkZS57_6Nk" title="YouTube video player" frameborder="0" style="border: 1px solid #bbb; border-radius: 10px; width: 100%;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
@@ -107,9 +126,7 @@
       <div class="column is-two-thirds">
         <h2 class="title is-2">Abstract</h2>
         <div class="content has-text-justified is-size-5">
-          <p>
-            Many humanoid and multi-legged robots are controlled in positions rather than in torques, preventing direct control of contact forces, and hampering their ability to create multiple contacts to enhance their balance, such as placing a hand on a wall or a handrail. This paper introduces the SEIKO (Sequential Equilibrium Inverse Kinematic Optimization) pipeline, drawing inspiration from flexibility models used in serial elastic actuators to indirectly control contact forces on traditional position-controlled robots. SEIKO formulates whole-body retargeting from Cartesian commands and admittance control using two quadratic programs solved in real time. We validated our pipeline with experiments on the real, full-scale humanoid robot Talos in various multi-contact scenarios, including pushing tasks, far-reaching tasks, stair climbing, and stepping on sloped surfaces. This work opens the possibility of stable, contact-rich behaviors while getting around many of the challenges of torque-controlled robots.
-          </p>
+          <p>Many humanoid and multi-legged robots are controlled in positions rather than in torques, which prevents direct control of contact forces, and hampers their ability to create multiple contacts to enhance their balance, such as placing a hand on a wall or a handrail. This letter introduces the SEIKO (Sequential Equilibrium Inverse Kinematic Optimization) pipeline, and proposes a unified formulation that exploits an explicit model of flexibility to indirectly control contact forces on traditional position-controlled robots. SEIKO formulates whole-body retargeting from Cartesian commands and admittance control using two quadratic programs solved in real-time. Our pipeline is validated with experiments on the real, full-scale humanoid robot Talos in various multi-contact scenarios, including pushing tasks, far-reaching tasks, stair climbing, and stepping on sloped surfaces.</p>
         </div>
       </div>
     </div>
@@ -176,7 +193,7 @@
                 Real systems, including stiff position-controlled robots, inherently possess flexibilities arising from structural bending and internal actuator impedance
               </li>
               <li>
-                In presence of flexibilities, the actual system's force distribution is unique, determined by the configuration that minimizes the overall whole body elastic energy
+                In presence of flexibilities, the actual system's force distribution is unique, determined by the configuration that minimizes the overall whole-body elastic energy
               </li>
               <li>
                 Despite being unobservable, flexibilities can be modeled and predicted through nonlinear whole-body optimization
@@ -209,7 +226,7 @@
                 In our experiments, a human operator teleoperates the robot, but input commands could alternatively come from an autonomous planner
               </li>
               <li>
-                SEIKO Retargeting computes feasible desired whole body configurations from given commands
+                SEIKO Retargeting computes feasible desired whole-body configurations from given commands
               </li>
               <li>
                 SEIKO Controller updates joint position commands to indirectly regulate contact forces using a model of flexibilities.
@@ -310,13 +327,12 @@
           <a href="resources/SEIKO_Controller.pdf"><img src="resources/pages.png" class="interpolation-image" alt="" style="display: block; margin-left: auto; margin-right: auto; width: 70%" /></a>
       </div>
       <div class="row is-full-width">
-        <pre><code>@misc{rouxel2023multicontact,
-    title={Multi-Contact Whole Body Force Control for Position-Controlled Robots}, 
-    author={Quentin Rouxel and Serena Ivaldi and Jean-Baptiste Mouret},
-    year={2023},
-    eprint={2312.16465},
-    archivePrefix={arXiv},
-    primaryClass={cs.RO}
+        <pre><code>@article{rouxel2024multicontact,
+  title={Multi-Contact Whole-Body Force Control for Position-Controlled Robots},
+  author={Rouxel, Quentin and Ivaldi, Serena and Mouret, Jean-Baptiste},
+  journal={IEEE Robotics and Automation Letters},
+  year={2024},
+  publisher={IEEE}
 }</code></pre>
       </div>
     </div>
